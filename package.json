@@ -21,7 +21,6 @@
   },
   "scripts": {
     "start": "yarn run build && (cd server && yarn start)",
-    "start-react": "react-scripts start",
     "start-client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
