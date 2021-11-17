@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import './App.css';
-
+import axios from "axios";
 
 const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
@@ -26,6 +26,9 @@ const data = {
     },
   ],
 };
+ 
+ 
+ 
 
 const options = {
   scales: {
@@ -39,14 +42,31 @@ const options = {
   },
 };
 
-const GroupedBar = () => (
+
+
+ 
+
+export default  function App() {
+  // const [post, setPost] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
+      // setPost(response.data);
+      console.log(response.data)
+    });
+  }, []);
+
+return(
   <>
     <div className='header'>
-      <h1 className='title'>Simple Barchart</h1>
+      <h1 className='title'>Simple Barchart  </h1>
     </div>
+    
     <Bar data={data} options={options} />
   </>
 );
 
-export default GroupedBar;
+}
+
+
 
