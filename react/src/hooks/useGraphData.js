@@ -10,9 +10,12 @@ export default function useGraphData() {
 
  
     const getGraphData = async () => {
+        
     return await axios.get('/graph').then(res => {  
         
-            return res.data.graphData;                               
+            return res.data; 
+            
+            
             }).catch((err) => {
             setError(err.response.data);
         })

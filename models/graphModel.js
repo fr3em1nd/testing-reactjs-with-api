@@ -4,13 +4,12 @@ const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const graphSchema = new Schema({
-    username: {
-        type: String,
-        required: [true, 'Enter a username.'],
-    },
- 
+    propertyId: Number,
+    propertyName: Number,
+    income: Object,
+    expense: Object
 });
 
  
-const Graphs = mongoose.model('Graphs', graphSchema);
-module.exports = Graphs; 
+const Graph = mongoose.model('Graph', graphSchema,'propertyData');
+module.exports = Graph; 
