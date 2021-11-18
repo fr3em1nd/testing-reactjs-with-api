@@ -10,9 +10,9 @@ var propertySchema = mongoose.Schema({
     expense: Array,
   });
   
-  var Property = mongoose.model('Prop', propertySchema, 'properties');
+  var Property = mongoose.model('Property', propertySchema, 'skillAssessment');
 
-  var dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false';
+  var dbUrl = 'mongodb://test:test14344@cluster0-shard-00-00.r70kc.mongodb.net:27017,cluster0-shard-00-01.r70kc.mongodb.net:27017,cluster0-shard-00-02.r70kc.mongodb.net:27017/test?authSource=admin&replicaSet=atlas-ly3nh7-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true';
 
   mongoose.connect(dbUrl,(err) => {
     console.log('mongodb not',err);
@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
   });
 
   app.get('/properties-data', (req, res) => {
-    Property.find({},(err, messages)=> {
-      res.send(messages);
+    Property.find({},(err, prop)=> {
+      res.send(prop);
     }).sort({'propertyId': -1});
   })
 

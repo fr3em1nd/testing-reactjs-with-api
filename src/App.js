@@ -45,7 +45,7 @@ export default  function App() {
   const [post, setPost] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get('/testing.json').then((response) => {
+    axios.get('/properties-data').then((response) => {
     
       console.log(response);
       setPost(response.data);
